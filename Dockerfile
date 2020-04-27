@@ -1,5 +1,5 @@
 # Base OS
-FROM ubuntu
+FROM ubuntu:18.04
 
 # Install requirements
 RUN apt-get update -y \
@@ -12,9 +12,9 @@ RUN apt-get update -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy code for command-line interface into image and install it
-COPY . /root/<my_simulator>
-RUN pip3 install /root/<my_simulator>
+COPY . /root/csimpy
+RUN pip3 install /root/csimpy
 
 # Entrypoint
-ENTRYPOINT ["<my-simulator>"]
+ENTRYPOINT ["csimpy"]
 CMD []

@@ -7,8 +7,8 @@
 """
 
 from Biosimulations_utils.simulator.testing import SbmlSedmlCombineSimulatorValidator
-from my_simulator import __main__
-import my_simulator
+from csimpy import __main__
+import csimpy
 import capturer
 import docker
 import os
@@ -38,14 +38,14 @@ class CliTestCase(unittest.TestCase):
             with capturer.CaptureOutput(merged=False, relay=False) as captured:
                 with self.assertRaises(SystemExit):
                     app.run()
-                self.assertIn(my_simulator.__version__, captured.stdout.get_text())
+                self.assertIn(csimpy.__version__, captured.stdout.get_text())
                 self.assertEqual(captured.stderr.get_text(), '')
 
         with __main__.App(argv=['--version']) as app:
             with capturer.CaptureOutput(merged=False, relay=False) as captured:
                 with self.assertRaises(SystemExit):
                     app.run()
-                self.assertIn(my_simulator.__version__, captured.stdout.get_text())
+                self.assertIn(csimpy.__version__, captured.stdout.get_text())
                 self.assertEqual(captured.stderr.get_text(), '')
 
     def test_sim_short_arg_names(self):

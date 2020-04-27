@@ -1,4 +1,4 @@
-""" BioSimulations-compliant command-line interface to the `MySimulator <https://url.for.my.simulator>`_ simulation program.
+""" BioSimulations-compliant command-line interface to the `CSimPy <https://url.for.my.simulator>`_ simulation program.
 
 :Author: Author name <email@organization>
 :Date: YYYY-MM-DD
@@ -7,7 +7,7 @@
 """
 
 from .core import exec_combine_archive
-import my_simulator
+#import csimpy
 import cement
 
 
@@ -17,8 +17,8 @@ class BaseController(cement.Controller):
     class Meta:
         label = 'base'
         description = ("BioSimulations-compliant command-line interface to the "
-                       "<MySimulator> simulation program <https://url.for.my.simulator>.")
-        help = "<my-simulator>"
+                       "CSimPy simulation program <https://url.for.my.simulator>.")
+        help = "csimpy"
         arguments = [
             (['-i', '--archive'], dict(type=str,
                                        required=True,
@@ -27,7 +27,7 @@ class BaseController(cement.Controller):
                                        default='.',
                                        help='Directory to save outputs')),
             (['-v', '--version'], dict(action='version',
-                                       version=my_simulator.__version__)),
+                                       version=csimpy.__version__)),
         ]
 
     @cement.ex(hide=True)
@@ -39,7 +39,7 @@ class BaseController(cement.Controller):
 class App(cement.App):
     """ Command line application """
     class Meta:
-        label = '<my-simulator>'
+        label = 'csimpy'
         base_controller = 'base'
         handlers = [
             BaseController,

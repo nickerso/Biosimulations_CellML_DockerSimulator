@@ -9,7 +9,7 @@ except ImportError:
     import pkg_utils
 import os
 
-name = '<my_simulator>'
+name = 'csimpy'
 dirname = os.path.dirname(__file__)
 
 # get package metadata
@@ -20,7 +20,7 @@ setuptools.setup(
     name=name,
     version=md.version,
     description=("BioSimulations-compliant command-line interface to "
-                 "the <MySimulator> simulation program <https://url.for.my.simulator>."),
+                 "the CSimPy simulation program <https://url.for.my.simulator>."),
     long_description=md.long_description,
     url="https://github.com/<organization>/<repository>",
     download_url="https://github.com/<organization>/<repository>",
@@ -41,7 +41,7 @@ setuptools.setup(
     ],
     entry_points={
         'console_scripts': [
-            '<my-simulator> = <my_simulator>.__main__:main',
+            'csimpy = csimpy.__main__:main',
         ],
     },
 )
